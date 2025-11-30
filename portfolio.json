@@ -1,0 +1,199 @@
+{
+  "personal": {
+    "name": "Alvaro Guzman",
+    "title": "Senior Full-Stack Developer",
+    "subtitle": "7+ Years Experience | .NET, Angular, Node.js | Banking & Enterprise Applications",
+    "location": "Cap Cana, Dominican Republic",
+    "relocationNote": "Available for opportunities.",
+    "contact": {
+      "email": "aagn2807@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/alvaro-guzman-bb11921aa/",
+      "github": "https://github.com/aag2807"
+    }
+  },
+
+  "about": {
+    "summary": "Full-Stack Developer with 7+ years of experience building scalable enterprise applications across banking, payments, and government sectors. Proven track record of delivering high-performance solutions in distributed teams across multiple time zones.",
+    "highlights": [
+      "Enterprise Applications: Built and scaled applications serving multiple countries",
+      "Banking Systems: Integrated 60+ payment APIs, developed checkout flows and transaction processing",
+      "Database Expertise: Complex SQL Server migrations, optimization, and architecture",
+      "System Architecture: Microservices design, API development, performance optimization",
+      "Remote Leadership: Successfully delivered projects across international teams"
+    ],
+    "currentFocus": "Exploring AI/LLM integration (LangChain, MCP), systems programming with Rust and Odin, and cloud architecture patterns."
+  },
+
+  "polyglot": {
+    "tagline": "One Problem, Many Solutions",
+    "description": "I believe the best developers speak multiple languages — not just programming ones. Each tool has its strengths, and knowing when to reach for the right one is what separates good from great.",
+    "languages": [
+      { "name": "C#", "category": "backend", "years": 5 },
+      { "name": ".NET Core", "category": "backend", "years": 5 },
+      { "name": "Go", "category": "backend", "years": 5 },
+      { "name": "Node.js", "category": "backend", "years": 7 },
+      { "name": "PHP", "category": "backend", "years": 3 },
+      { "name": "TypeScript", "category": "frontend", "years": 7 },
+      { "name": "JavaScript", "category": "frontend", "years": 7 },
+      { "name": "Angular", "category": "frontend", "years": 6 },
+      { "name": "React", "category": "frontend", "years": 6 },
+      { "name": "Vue.js", "category": "frontend", "years": 5 },
+      { "name": "Svelte", "category": "frontend", "years": 5 },
+      { "name": "Solid", "category": "frontend", "years": 3 },
+      { "name": "Qwik", "category": "frontend", "years": 1 },
+      { "name": "Preact", "category": "frontend", "years": 1 },
+      { "name": "Alpine.js", "category": "frontend", "years": 1 },
+      { "name": "HTMX", "category": "frontend", "years": 2 },
+      { "name": "Ionic", "category": "mobile", "years": 5 },
+      { "name": "Flutter", "category": "mobile", "years": 1 },
+      { "name": "Tailwind CSS", "category": "styling", "years": 3 },
+      { "name": "SQL Server", "category": "database", "years": 5 },
+      { "name": "MySQL", "category": "database", "years": 4 },
+      { "name": "Rust", "category": "systems", "years": 1 },
+      { "name": "Odin", "category": "systems", "years": 1 },
+      { "name": "C", "category": "systems", "years": 1 },
+      { "name": "C++", "category": "systems", "years": 1 },
+      { "name": "Lua", "category": "systems", "years": 2 },
+      { "name": "Elixir", "category": "backend", "years": 1 }
+    ]
+  },
+
+  "skills": {
+    "backend": ["C#", ".NET Core", "Node.js", "PHP", "Go"],
+    "frontend": ["Angular", "React", "TypeScript", "JavaScript", "Vue.js", "HTMX"],
+    "database": ["SQL Server", "MySQL", "Database Design", "Query Optimization"],
+    "tools": ["Git", "SignalR", "REST APIs", "WebSocket", "Ionic", "Flutter"],
+    "exploring": ["Rust", "Odin", "AI/LLM (LangChain, MCP)", "Compiler Design", "Cloud Architecture"]
+  },
+
+  "experience": [
+    {
+      "company": "Wepsys",
+      "title": "Full-Stack Developer",
+      "period": "Dec 2021 - Dec 2024",
+      "location": "Santo Domingo, Dominican Republic",
+      "type": "Full-time",
+      "achievements": [
+        "Led development and scaling of 2RConnect application consumed across multiple countries",
+        "Developed and maintained high-performance web applications using Angular and .NET",
+        "Delivered multiple outsourced projects with advanced Angular and .NET solutions",
+        "Improved user experience resulting in higher customer satisfaction scores",
+        "Collaborated with cross-functional teams across different time zones"
+      ],
+      "technologies": ["C#", ".NET", "Angular", "TypeScript", "SQL Server", "Git"]
+    },
+    {
+      "company": "ATL SOFTWARE",
+      "title": "Full-Stack Developer",
+      "period": "Jun 2022 - Aug 2024",
+      "location": "Santo Domingo, Dominican Republic",
+      "type": "Full-time",
+      "achievements": [
+        "Specialized in payment API integrations - worked with 60+ different payment APIs",
+        "Developed and maintained checkout and e-commerce sections for web applications",
+        "Managed and enhanced Ionic Angular mobile application",
+        "Improved e-commerce platform UX resulting in 15% increase in conversion rates",
+        "Ensured smooth integration and support for payment processing systems"
+      ],
+      "technologies": ["Angular", "Ionic", ".NET", "Payment APIs", "TypeScript", "Unit Testing"]
+    },
+    {
+      "company": "Centros Tecnológicos Comunitarios",
+      "title": "Frontend Developer",
+      "period": "Apr 2021 - Dec 2021",
+      "location": "Santo Domingo, Dominican Republic",
+      "type": "Full-time",
+      "achievements": [
+        "Scaled internal application improving performance and usability",
+        "Published Ionic Angular application facilitating radio station accessibility nationwide",
+        "Modernized internal APIs from Loopback/PHP to .NET 5",
+        "Collaborated with multiple departments to deliver effective solutions",
+        "Improved system reliability and maintainability"
+      ],
+      "technologies": ["Angular", "Ionic", ".NET 5", "Vue.js", "PHP"]
+    },
+    {
+      "company": "Self-Employed",
+      "title": "Freelance Programmer",
+      "period": "Nov 2019 - Present",
+      "location": "Dominican Republic",
+      "type": "Contract",
+      "achievements": [
+        "Developed and maintained outsourced projects using diverse tech stacks (Python to TypeScript)",
+        "Created applications across web, desktop, and mobile platforms",
+        "Applied full-stack knowledge to deliver complete solutions",
+        "Built custom solutions tailored to client needs"
+      ],
+      "technologies": ["Python", "TypeScript", "Angular", ".NET", "Git", "HTMX"]
+    }
+  ],
+
+  "projects": [
+    {
+      "name": "Lunar",
+      "tagline": "TypeScript for Lua",
+      "description": "A superset language for Lua that adds TypeScript-like features including classes, decorators, modern import/export syntax, and type safety. Written in Go as a compiler/transpiler.",
+      "status": "In Development",
+      "technologies": ["Go", "Compiler Design", "Language Theory", "Lua"],
+      "highlights": [
+        "Custom lexer and parser implementation",
+        "Type inference and checking",
+        "Transpiles to vanilla Lua for compatibility"
+      ]
+    },
+    {
+      "name": "2RConnect",
+      "tagline": "Multi-Country Enterprise Application",
+      "description": "Led development and scaling of enterprise application consumed across multiple countries, handling complex business logic and multi-region deployment.",
+      "status": "Production",
+      "technologies": ["Angular", ".NET", "SQL Server"],
+      "highlights": [
+        "Successfully scaled for international use",
+        "Handled multi-region deployment challenges",
+        "Optimized for performance across different markets"
+      ]
+    }
+  ],
+
+  "certifications": [
+    {
+      "name": "MCP Crash Course: Complete Model Context Protocol in a Day",
+      "issuer": "Udemy",
+      "date": "Apr 2025",
+      "credentialId": "UC-8d00ab24-4fdb-4cd6-8d86-1899c9a03342",
+      "skills": ["MCP", "LangChain", "AI Integration", "Python"]
+    },
+    {
+      "name": "SignalR - The Complete Guide",
+      "issuer": "Udemy",
+      "date": "Aug 2024",
+      "credentialId": "UC-08d55a98-1daa-462d-a5e1-aa4f66d626d5",
+      "skills": ["SignalR", "WebSocket", "Real-time Applications", ".NET"]
+    }
+  ],
+
+  "education": {
+    "type": "Self-Taught Software Developer",
+    "field": "Computer Science & Software Engineering",
+    "period": "2017 - 2019",
+    "description": "Intensive self-directed learning in full-stack development, system architecture, and software engineering principles through online courses, technical documentation, and hands-on projects."
+  },
+
+  "languages": [
+    {
+      "language": "Spanish",
+      "proficiency": "Native"
+    },
+    {
+      "language": "English",
+      "proficiency": "Professional Working Proficiency"
+    }
+  ],
+
+  "interests": [
+    "Systems Programming & Compiler Design",
+    "Game Development & Engine Architecture",
+    "AI/LLM Integration & Applications",
+    "Open Source Contributions"
+  ]
+}

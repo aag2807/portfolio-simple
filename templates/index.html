@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{.Personal.Name}} - {{.Personal.Title}}. {{.Personal.Subtitle}}">
+    <meta name="author" content="{{.Personal.Name}}">
+    <meta name="keywords" content="software developer, full-stack, .NET, Angular, Node.js, banking, enterprise">
+    
+    <meta property="og:title" content="{{.Personal.Name}} | {{.Personal.Title}}">
+    <meta property="og:description" content="{{.About.Summary}}">
+    <meta property="og:type" content="website">
+    
+    <title>{{.Personal.Name}} | {{.Personal.Title}}</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="shortcut icon" href="favicon/favicon.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                        display: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'SF Mono', 'Consolas', 'Liberation Mono', 'monospace']
+                    },
+                    colors: {
+                        ink: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-ink-50 dark:bg-ink-950 text-ink-800 dark:text-ink-200 font-sans antialiased transition-colors duration-300">
+    
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-ink-50/80 dark:bg-ink-950/80 backdrop-blur-md border-b border-ink-200 dark:border-ink-800 no-print">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="font-display text-xl text-ink-900 dark:text-ink-100">
+                {{.Personal.Name}}
+            </a>
+            
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+                    <a href="#about" class="text-ink-600 dark:text-ink-400 hover:text-ink-900 dark:hover:text-ink-100 transition-colors">About</a>
+                    <a href="#polyglot" class="text-ink-600 dark:text-ink-400 hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Skills</a>
+                    <a href="#experience" class="text-ink-600 dark:text-ink-400 hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Experience</a>
+                    <a href="#projects" class="text-ink-600 dark:text-ink-400 hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Projects</a>
+                    <a href="#contact" class="text-ink-600 dark:text-ink-400 hover:text-ink-900 dark:hover:text-ink-100 transition-colors">Contact</a>
+                </div>
+                
+                <button id="theme-toggle" class="p-2 rounded-lg bg-ink-100 dark:bg-ink-800 hover:bg-ink-200 dark:hover:bg-ink-700 transition-colors" aria-label="Toggle dark mode">
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                    </svg>
+                    <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-20">
+        
+        <section class="relative min-h-[85vh] flex items-center justify-center px-6 py-20 overflow-hidden">
+            <canvas id="particle-canvas" class="absolute inset-0 w-full h-full"></canvas>
+            <div class="relative z-10 max-w-4xl mx-auto text-center">
+                <p class="text-ink-500 dark:text-ink-400 font-mono text-sm tracking-wider uppercase mb-4 fade-in stagger-1">
+                    {{.Personal.Location}}
+                </p>
+                
+                <h1 class="font-display text-5xl md:text-7xl lg:text-8xl text-ink-900 dark:text-ink-50 mb-6 fade-in stagger-2">
+                    {{.Personal.Name}}
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-ink-600 dark:text-ink-300 font-light mb-4 fade-in stagger-3">
+                    {{.Personal.Title}}
+                </p>
+                
+                <p class="text-lg text-ink-500 dark:text-ink-400 max-w-2xl mx-auto mb-8 fade-in stagger-4">
+                    {{.Personal.Subtitle}}
+                </p>
+                
+                <div class="flex flex-wrap items-center justify-center gap-4 fade-in stagger-5">
+                    <a href="#contact" class="px-6 py-3 bg-ink-900 dark:bg-ink-100 text-ink-50 dark:text-ink-900 rounded-lg font-medium hover:bg-ink-800 dark:hover:bg-ink-200 transition-colors">
+                        Get in Touch
+                    </a>
+                    <a href="{{.Personal.Contact.GitHub}}" target="_blank" rel="noopener" class="px-6 py-3 border border-ink-300 dark:border-ink-700 rounded-lg font-medium hover:bg-ink-100 dark:hover:bg-ink-800 transition-colors">
+                        View GitHub
+                    </a>
+                </div>
+                
+                {{if .Personal.RelocationNote}}
+                <p class="mt-8 text-sm text-emerald-600 dark:text-emerald-400 font-medium fade-in stagger-5">
+                    📍 {{.Personal.RelocationNote}}
+                </p>
+                {{end}}
+            </div>
+        </section>
+
+        <section id="about" class="px-6 py-20 bg-ink-100/50 dark:bg-ink-900/50">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-display text-3xl md:text-4xl text-ink-900 dark:text-ink-100 mb-8">
+                    About Me
+                </h2>
+                
+                <p class="text-lg text-ink-600 dark:text-ink-300 leading-relaxed mb-8">
+                    {{.About.Summary}}
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    {{range .About.Highlights}}
+                    <div class="flex items-start gap-3">
+                        <span class="text-emerald-500 mt-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                        </span>
+                        <span class="text-ink-700 dark:text-ink-300">{{.}}</span>
+                    </div>
+                    {{end}}
+                </div>
+                
+                <div class="p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded-r-lg">
+                    <p class="text-blue-800 dark:text-blue-200">
+                        <span class="font-semibold">Currently Exploring:</span> {{.About.CurrentFocus}}
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="polyglot" class="px-6 py-20">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="font-display text-3xl md:text-4xl text-ink-900 dark:text-ink-100 mb-4">
+                        {{.Polyglot.Tagline}}
+                    </h2>
+                    <p class="text-lg text-ink-600 dark:text-ink-400 max-w-2xl mx-auto">
+                        {{.Polyglot.Description}}
+                    </p>
+                </div>
+                
+                <div class="bg-ink-900 dark:bg-ink-950 rounded-lg border border-ink-700 dark:border-ink-800 overflow-hidden font-mono text-sm shadow-xl">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-ink-800 dark:bg-ink-900 border-b border-ink-700 dark:border-ink-800">
+                        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                        <span class="ml-4 text-ink-400 text-xs">~/skills $ cat toolbox.json</span>
+                    </div>
+                    
+                    <div class="p-4 md:p-6 space-y-4 max-h-[500px] overflow-y-auto">
+                        <div>
+                            <div class="text-emerald-400 mb-2">// backend</div>
+                            <div class="flex flex-wrap gap-2">
+                                {{range .Polyglot.Languages}}{{if eq .Category "backend"}}
+                                <span class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded text-emerald-300 hover:bg-emerald-500/20 transition-colors">
+                                    <span class="text-emerald-500">$</span>
+                                    <span>{{.Name}}</span>
+                                    <span class="text-emerald-600 text-xs">{{.Years}}y</span>
+                                </span>
+                                {{end}}{{end}}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="text-blue-400 mb-2">// frontend</div>
+                            <div class="flex flex-wrap gap-2">
+                                {{range .Polyglot.Languages}}{{if eq .Category "frontend"}}
+                                <span class="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded text-blue-300 hover:bg-blue-500/20 transition-colors">
+                                    <span class="text-blue-500">$</span>
+                                    <span>{{.Name}}</span>
+                                    <span class="text-blue-600 text-xs">{{.Years}}y</span>
+                                </span>
+                                {{end}}{{end}}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="text-amber-400 mb-2">// database</div>
+                            <div class="flex flex-wrap gap-2">
+                                {{range .Polyglot.Languages}}{{if eq .Category "database"}}
+                                <span class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/30 rounded text-amber-300 hover:bg-amber-500/20 transition-colors">
+                                    <span class="text-amber-500">$</span>
+                                    <span>{{.Name}}</span>
+                                    <span class="text-amber-600 text-xs">{{.Years}}y</span>
+                                </span>
+                                {{end}}{{end}}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="text-purple-400 mb-2">// mobile</div>
+                            <div class="flex flex-wrap gap-2">
+                                {{range .Polyglot.Languages}}{{if eq .Category "mobile"}}
+                                <span class="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded text-purple-300 hover:bg-purple-500/20 transition-colors">
+                                    <span class="text-purple-500">$</span>
+                                    <span>{{.Name}}</span>
+                                    <span class="text-purple-600 text-xs">{{.Years}}y</span>
+                                </span>
+                                {{end}}{{end}}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="text-red-400 mb-2">// systems</div>
+                            <div class="flex flex-wrap gap-2">
+                                {{range .Polyglot.Languages}}{{if eq .Category "systems"}}
+                                <span class="inline-flex items-center gap-2 px-3 py-1 bg-red-500/10 border border-red-500/30 rounded text-red-300 hover:bg-red-500/20 transition-colors">
+                                    <span class="text-red-500">$</span>
+                                    <span>{{.Name}}</span>
+                                    <span class="text-red-600 text-xs">{{.Years}}y</span>
+                                </span>
+                                {{end}}{{end}}
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="text-pink-400 mb-2">// styling</div>
+                            <div class="flex flex-wrap gap-2">
+                                {{range .Polyglot.Languages}}{{if eq .Category "styling"}}
+                                <span class="inline-flex items-center gap-2 px-3 py-1 bg-pink-500/10 border border-pink-500/30 rounded text-pink-300 hover:bg-pink-500/20 transition-colors">
+                                    <span class="text-pink-500">$</span>
+                                    <span>{{.Name}}</span>
+                                    <span class="text-pink-600 text-xs">{{.Years}}y</span>
+                                </span>
+                                {{end}}{{end}}
+                            </div>
+                        </div>
+                        
+                        <div class="pt-2 border-t border-ink-700 dark:border-ink-800 flex items-center gap-2 text-ink-500">
+                            <span class="text-green-400">➜</span>
+                            <span>{{len .Polyglot.Languages}} packages installed</span>
+                            <span class="animate-pulse">▋</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="px-6 py-20 bg-ink-100/50 dark:bg-ink-900/50 print-break">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-display text-3xl md:text-4xl text-ink-900 dark:text-ink-100 mb-12">
+                    Experience
+                </h2>
+                
+                <div class="space-y-12">
+                    {{range $index, $exp := .Experience}}
+                    {{if lt $index 3}}
+                    <article class="relative pl-8 border-l-2 border-ink-200 dark:border-ink-700">
+                        <span class="absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-ink-300 dark:bg-ink-600 border-4 border-ink-50 dark:border-ink-950"></span>
+                        
+                        <div class="flex flex-wrap items-start justify-between gap-2 mb-2">
+                            <div>
+                                <h3 class="text-xl font-semibold text-ink-900 dark:text-ink-100">{{$exp.Title}}</h3>
+                                <p class="text-lg text-ink-600 dark:text-ink-400">{{$exp.Company}}</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-mono text-sm text-ink-500 dark:text-ink-400">{{$exp.Period}}</p>
+                                <p class="text-sm text-ink-400 dark:text-ink-500">{{$exp.Location}}</p>
+                            </div>
+                        </div>
+                        
+                        <ul class="mt-4 space-y-2">
+                            {{range $exp.Achievements}}
+                            <li class="flex items-start gap-2 text-ink-600 dark:text-ink-300">
+                                <span class="text-ink-400 mt-1.5">•</span>
+                                <span>{{.}}</span>
+                            </li>
+                            {{end}}
+                        </ul>
+                        
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            {{range $exp.Technologies}}
+                            <span class="px-2 py-1 text-xs font-mono bg-ink-200 dark:bg-ink-800 text-ink-600 dark:text-ink-400 rounded">{{.}}</span>
+                            {{end}}
+                        </div>
+                    </article>
+                    {{end}}
+                    {{end}}
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="px-6 py-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-display text-3xl md:text-4xl text-ink-900 dark:text-ink-100 mb-12">
+                    Projects
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    {{range .Projects}}
+                    <article class="hover-lift p-6 bg-ink-100 dark:bg-ink-900 rounded-xl border border-ink-200 dark:border-ink-800">
+                        <div class="flex items-start justify-between mb-3">
+                            <h3 class="text-xl font-semibold text-ink-900 dark:text-ink-100">{{.Name}}</h3>
+                            {{if eq .Status "In Development"}}
+                            <span class="px-2 py-1 text-xs font-medium bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 rounded-full">{{.Status}}</span>
+                            {{else}}
+                            <span class="px-2 py-1 text-xs font-medium bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-full">{{.Status}}</span>
+                            {{end}}
+                        </div>
+                        
+                        <p class="text-sm font-medium text-ink-500 dark:text-ink-400 mb-3">{{.Tagline}}</p>
+                        <p class="text-ink-600 dark:text-ink-300 mb-4">{{.Description}}</p>
+                        
+                        <ul class="space-y-1 mb-4">
+                            {{range .Highlights}}
+                            <li class="flex items-center gap-2 text-sm text-ink-600 dark:text-ink-400">
+                                <span class="text-emerald-500">→</span>
+                                {{.}}
+                            </li>
+                            {{end}}
+                        </ul>
+                        
+                        <div class="flex flex-wrap gap-2">
+                            {{range .Technologies}}
+                            <span class="px-2 py-1 text-xs font-mono bg-ink-200 dark:bg-ink-800 text-ink-600 dark:text-ink-400 rounded">{{.}}</span>
+                            {{end}}
+                        </div>
+                    </article>
+                    {{end}}
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-20 bg-ink-100/50 dark:bg-ink-900/50">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-display text-3xl md:text-4xl text-ink-900 dark:text-ink-100 mb-12">
+                    Certifications
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    {{range .Certifications}}
+                    <article class="p-6 bg-ink-50 dark:bg-ink-950 rounded-xl border border-ink-200 dark:border-ink-800">
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-ink-900 dark:text-ink-100 mb-1">{{.Name}}</h3>
+                                <p class="text-sm text-ink-500 dark:text-ink-400 mb-2">{{.Issuer}} • {{.Date}}</p>
+                                <div class="flex flex-wrap gap-1">
+                                    {{range .Skills}}
+                                    <span class="px-2 py-0.5 text-xs bg-ink-200 dark:bg-ink-800 text-ink-600 dark:text-ink-400 rounded">{{.}}</span>
+                                    {{end}}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    {{end}}
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-20">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-display text-3xl md:text-4xl text-ink-900 dark:text-ink-100 mb-12">
+                    Education & Languages
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold text-ink-900 dark:text-ink-100 mb-4">Education</h3>
+                        <div class="p-4 bg-ink-100 dark:bg-ink-900 rounded-lg border border-ink-200 dark:border-ink-800">
+                            <p class="font-medium text-ink-900 dark:text-ink-100">{{.Education.Type}}</p>
+                            <p class="text-sm text-ink-500 dark:text-ink-400 mb-2">{{.Education.Field}} • {{.Education.Period}}</p>
+                            <p class="text-sm text-ink-600 dark:text-ink-300">{{.Education.Description}}</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold text-ink-900 dark:text-ink-100 mb-4">Languages</h3>
+                        <div class="space-y-3">
+                            {{range .Languages}}
+                            <div class="flex items-center justify-between p-3 bg-ink-100 dark:bg-ink-900 rounded-lg border border-ink-200 dark:border-ink-800">
+                                <span class="font-medium text-ink-900 dark:text-ink-100">{{.Language}}</span>
+                                <span class="text-sm text-ink-500 dark:text-ink-400">{{.Proficiency}}</span>
+                            </div>
+                            {{end}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-6 py-16 bg-ink-100/50 dark:bg-ink-900/50 overflow-hidden">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-display text-2xl text-ink-900 dark:text-ink-100 mb-6">
+                    What Excites Me
+                </h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    {{range $i, $interest := .Interests}}
+                    <div class="group relative p-5 rounded-xl bg-gradient-to-br from-ink-100 to-ink-200 dark:from-ink-800 dark:to-ink-900 border border-ink-200 dark:border-ink-700 hover:border-ink-300 dark:hover:border-ink-600 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                        <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-500/10 to-purple-500/10 dark:from-blue-500/20 dark:to-purple-500/20 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="flex items-start gap-3">
+                            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 text-white text-sm font-bold">
+                                {{if eq $i 0}}⚙{{else if eq $i 1}}🎮{{else if eq $i 2}}🤖{{else}}💻{{end}}
+                            </span>
+                            <span class="text-ink-700 dark:text-ink-200 font-medium leading-relaxed">{{$interest}}</span>
+                        </div>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="px-6 py-20 print-break">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="font-display text-3xl md:text-4xl text-ink-900 dark:text-ink-100 mb-4">
+                    Let's Connect
+                </h2>
+                <p class="text-lg text-ink-600 dark:text-ink-400 mb-8 max-w-xl mx-auto">
+                    I'm always open to discussing new opportunities, interesting projects, or just having a conversation about technology.
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="mailto:{{.Personal.Contact.Email}}" class="flex items-center gap-2 px-6 py-3 bg-ink-900 dark:bg-ink-100 text-ink-50 dark:text-ink-900 rounded-lg font-medium hover:bg-ink-800 dark:hover:bg-ink-200 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        Email Me
+                    </a>
+                    
+                    <a href="{{.Personal.Contact.LinkedIn}}" target="_blank" rel="noopener" class="flex items-center gap-2 px-6 py-3 border border-ink-300 dark:border-ink-700 rounded-lg font-medium hover:bg-ink-100 dark:hover:bg-ink-800 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    
+                    <a href="{{.Personal.Contact.GitHub}}" target="_blank" rel="noopener" class="flex items-center gap-2 px-6 py-3 border border-ink-300 dark:border-ink-700 rounded-lg font-medium hover:bg-ink-100 dark:hover:bg-ink-800 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+                
+                <p class="mt-8 text-sm text-ink-500 dark:text-ink-400">
+                    {{.Personal.Contact.Email}}
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="px-6 py-8 border-t border-ink-200 dark:border-ink-800">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-ink-500 dark:text-ink-400">
+            <p>© {{currentYear}} {{.Personal.Name}}. Built with Go.</p>
+            <p class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Available for new opportunities
+            </p>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/sand.js"></script>
+</body>
+</html>
+
